@@ -1,7 +1,7 @@
 # LEDarcade64
  A collection of classes and functions for animated text and graphics on an Adafruit LED Matrix.
 
-This version is a fork of the original LEDarcade from DATAGOD, but it adds noew functionalities and adapt it for a 64x64 RGB LED Matrix.
+This version is a fork of the original LEDarcade from DATAGOD, but it adds new functionalities and adapt it for a 64x64 RGB LED Matrix.
 In my particular case I'm using two chained 64x64 panels to reach a 128x64 total Matrix.
 
 ## What it can do
@@ -51,9 +51,9 @@ sudo python3 Tron.py
  My favorite: Displays the closest aircraft to specified coordinates and shows all of its data and info using FlightRadar24 API.
  Edit _FlightConfig.ini_ to set some necessary parameters.
  
- KEYBOARD SHORTCUTS:
-'U' - Update Flights list
-'N' - Show Next Flight in the list
+ KEYBOARD SHORTCUTS:  
+'U' - Update Flights list  
+'N' - Show Next Flight in the list  
 
  ~~~
  sudo python3 flight.py
