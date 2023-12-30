@@ -8,8 +8,8 @@ import random
 
 #Variable declaration section
 ScrollSleep   = 0.025
-HatHeight = 32
-HatWidth  = 64
+HatHeight = 64
+HatWidth  = 128
 
 
 print ("---------------------------------------------------------------")

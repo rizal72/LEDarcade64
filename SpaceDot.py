@@ -75,9 +75,9 @@ MinBomberWave        = 3 #homning missles / ufos only show up after this wave
 
 
 SpaceDotMinH = 25
-SpaceDotMaxH = 63
+SpaceDotMaxH = 125
 SpaceDotMinV = 0
-SpaceDotMaxV = 26
+SpaceDotMaxV = 54
 
 #Ground
 GroundV = SpaceDotMaxV - 1
@@ -2641,7 +2641,7 @@ def LaunchSpaceDot(GameMaxMinutes = 10000,ShowIntro=True):
     # M A I N   P R O C E S S I N G      --
     #--------------------------------------
     LED.LoadConfigData()
-
+    
     LED.ShowTitleScreen(
         BigText             = 'ASTRO',
         BigTextRGB          = LED.HighBlue,

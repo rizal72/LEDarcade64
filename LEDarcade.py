@@ -121,11 +121,13 @@ TinyClockHours   = 0
 CPUModifier      = 0
 Gamma            = 1
 ShowCrypto       = 'N'
-HatWidth         = 32  # These defaults can be overwritten in the ClockConfig.ini file
-HatHeight        = 32  # These defaults can be overwritten in the ClockConfig.ini file
+HatWidth         = 128  # These defaults can be overwritten in the ClockConfig.ini file
+HatHeight        = 64  # These defaults can be overwritten in the ClockConfig.ini file
+HatWidth2         = 64  # These defaults can be overwritten in the ClockConfig.ini file
+HatHeight2        = 32  # These defaults can be overwritten in the ClockConfig.ini file
 KeyboardPoll     = 10
 BrightColorCount = 27
-
+KeyPressed = ''
 
 
 
@@ -400,7 +402,7 @@ options.rows       = HatHeight
 options.cols       = HatWidth
 options.brightness = 100
 #stops sparkling 
-options.gpio_slowdown = 5
+options.gpio_slowdown = 2
 
 
 #options.chain_length = self.args.led_chain
@@ -3347,9 +3349,9 @@ class Layer(object):
   
 
 
-  def CreateMountains(self,GroundRGB,SurfaceRGB,maxheight=31):
+  def CreateMountains(self,GroundRGB,SurfaceRGB,maxheight=HatHeight-1):
     mh     = HatWidth -1
-    mv     = 31
+    mv     = HatHeight-1
 
     chance = 10
     Step   = random.randint(1,3)
@@ -3388,9 +3390,10 @@ class Layer(object):
 
       
       for y in range (0,HatHeight):
+        #print("y, mv:", y, mv)
         if(y >= mv):
           #Ground is brighter near top of screen, darker near bottom
-          GroundR, GroundG, GroundB = AdjustBrightnessRGB(GroundRGB,-y + 20)
+          GroundR, GroundG, GroundB = AdjustBrightnessRGB(GroundRGB,-y + (HatHeight*0.7))
           self.map[y][x] = (GroundR,GroundG,GroundB)  
           #self.map[y][x] = (0,(abs(y -34  )),0)
         else:
@@ -4653,6 +4656,20 @@ DownArrowSprite = Sprite(
    0,1,0]
 )
 
+
+# °
+DegreeSprite = Sprite(
+  3,
+  3,
+  0,
+  0,
+  0,
+  [0,1,1,
+   0,1,1,
+   0,0,0,
+   0,0,0,
+   0,0,0]
+)
 
 ClockSpriteBackground = Sprite(
   16,
@@ -12742,6 +12759,9 @@ def CreateBannerSprite(TheMessage):
 
     elif (c == '\\'):
       BannerSprite = JoinSprite(BannerSprite, BackSlashSprite,0)
+    
+    elif (c == '°'):
+      BannerSprite = JoinSprite(BannerSprite, DegreeSprite,0)
 
     elif (c == ' '):
       BannerSprite = JoinSprite(BannerSprite, SpaceSprite,0)
@@ -13226,6 +13246,7 @@ def GetKey(stdscr):
     or c == ord("q")
     or c == ord("r")
     or c == ord("t")
+    or c == ord("u")
     or c == ord("n")
     or c == ord("m") ):
     ReturnChar = chr(c)       
@@ -13242,6 +13263,7 @@ def GetKey(stdscr):
   
 
 def PollKeyboard():
+  global KeyPressed
   Key = ""
   curses.filter()
   stdscr = curses.initscr()
@@ -13253,7 +13275,7 @@ def PollKeyboard():
     print ("----------------")
     #ProcessKeypress(Key)
     #SaveConfigData()
-    
+    KeyPressed = Key
   
   return Key
 

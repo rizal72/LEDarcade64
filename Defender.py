@@ -198,8 +198,8 @@ DefenderStartH = 4
 
 #change display based on display dimensions
 if(LED.HatWidth > 60):
-  EnemyCountH = 36
-  HumanCountH = 50
+  EnemyCountH = LED.HatWidth-28
+  HumanCountH = LED.HatWidth-14
   ClockZoom = 1
   DefenderStartH = 2
 else:
@@ -1372,10 +1372,10 @@ def PlayDefender(GameMaxMinutes):
   #-- Create Layers              --
   #--------------------------------
 
-  Background   = LED.Layer(name="backround", width=2048, height=32,h=0,v=0)
-  Middleground = LED.Layer(name="backround", width=2048, height=32,h=0,v=0)
-  Foreground   = LED.Layer(name="backround", width=2048, height=32,h=0,v=0)
-  Ground       = LED.Layer(name="ground",    width=DefenderWorldWidth, height=32,h=0,v=0)
+  Background   = LED.Layer(name="backround", width=2048, height=LED.HatHeight,h=0,v=0)
+  Middleground = LED.Layer(name="backround", width=2048, height=LED.HatHeight,h=0,v=0)
+  Foreground   = LED.Layer(name="backround", width=2048, height=LED.HatHeight,h=0,v=0)
+  Ground       = LED.Layer(name="ground",    width=DefenderWorldWidth, height=LED.HatHeight,h=0,v=0)
 
   Background.CreateStars(5,0,50,50)
   Middleground.CreateStars(0,0,100,100)

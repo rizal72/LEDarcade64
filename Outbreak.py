@@ -451,21 +451,21 @@ class VirusWorld(object):
 
 
     if (ZoomFactor > 1):
-      H_modifier = (1 / LED.HatWidth ) * ZoomFactor * 2  #BigLED is 2 times wider than tall. Hardcoding now, will fix later. 
-      V_modifier = (1 / LED.HatHeight ) * ZoomFactor
-      NewHeight = round(LED.HatHeight * V_modifier)
-      NewWidth  = round(LED.HatWidth * H_modifier)
+      H_modifier = (1 / LED.HatWidth2 ) * ZoomFactor * 2  #BigLED is 2 times wider than tall. Hardcoding now, will fix later. 
+      V_modifier = (1 / LED.HatHeight2 ) * ZoomFactor
+      NewHeight = round(LED.HatHeight2 * V_modifier)
+      NewWidth  = round(LED.HatWidth2 * H_modifier)
 
 
-      HIndentFactor = (LED.HatWidth / 2)  - (NewWidth /2)
-      VIndentFactor = (LED.HatHeight / 2) - (NewHeight /2)
+      HIndentFactor = (LED.HatWidth2 / 2)  - (NewWidth /2)
+      VIndentFactor = (LED.HatHeight2 / 2) - (NewHeight /2)
     else:
       IndentFactor = 0
 
     #print("LED.HatWidth",LED.HatWidth," NewWidth",NewWidth," ZoomFactor:",ZoomFactor,"HV_modifier",HV_modifier, "IndentFactor:",IndentFactor)
 
-    for V in range(0,LED.HatHeight):
-      for H in range (0,LED.HatWidth):
+    for V in range(0,LED.HatHeight2):
+      for H in range (0,LED.HatWidth2):
         #print ("DisplayWindow hv HV: ",h,v,H,V) 
         name = self.Playfield[v+V][h+H].name
         #print ("Display: ",name,V,H)
@@ -520,8 +520,8 @@ class VirusWorld(object):
     count = 0
         
 
-    for V in range(0,LED.HatWidth):
-      for H in range (0,LED.HatHeight):
+    for V in range(0,LED.HatWidth2):
+      for H in range (0,LED.HatHeight2):
          
         name = self.Playfield[v+V][h+H].name
         #print ("Display: ",name,V,H)
@@ -555,8 +555,8 @@ class VirusWorld(object):
     #and counts how many items are in the area
     count = 0
         
-    for V in range(0,LED.HatWidth):
-      for H in range (0,LED.HatHeight):
+    for V in range(0,LED.HatWidth2):
+      for H in range (0,LED.HatHeight2):
          
         name = self.Playfield[v+V][h+H].name
         #print ("Display: ",name,V,H)
@@ -636,21 +636,21 @@ class VirusWorld(object):
     #Check boundaries
     if (StartX < 0):
       StartX = 0
-    if (StartX > LED.HatWidth-1):
-      StartX = LED.HatWidth-1
+    if (StartX > LED.HatWidth2-1):
+      StartX = LED.HatWidth2-1
     if (StartY < 0):
       StartY = 0
-    if (StartY > LED.HatHeight-1):
-      StartY = LED.HatHeight-1
+    if (StartY > LED.HatHeight2-1):
+      StartY = LED.HatHeight2-1
 
     if (StopX < 0):
       StopX = 0
-    if (StopX > LED.HatWidth-1):
-      StopX = LED.HatWidth-1
+    if (StopX > LED.HatWidth2-1):
+      StopX = LED.HatWidth2-1
     if (StopY < 0):
       StopY = 0
-    if (StopY > LED.HatHeight-1):
-      StopY = LED.HatHeight-1
+    if (StopY > LED.HatHeight2-1):
+      StopY = LED.HatHeight2-1
         
 
     #print("Start XY Stop XY",StartX,StartY, StopX, StopY)
@@ -2951,8 +2951,8 @@ def PlayOutbreak(GameMaxMinutes):
         
         while (FreeSpotFound == False and Tries <= 20):
           Tries = Tries + 1
-          BigFoodH = random.randint(20,LED.HatWidth)
-          BigFoodV = random.randint(5,LED.HatHeight - 8)
+          BigFoodH = random.randint(20,LED.HatWidth2)
+          BigFoodV = random.randint(5,LED.HatHeight2 - 8)
 
           if (DinnerPlate.Playfield[BigFoodV][BigFoodH].name == 'EmptyObject'):
             FreeSpotFound = True
