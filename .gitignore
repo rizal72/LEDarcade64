@@ -129,22 +129,3 @@ dmypy.json
 .pyre/
 
 #LEDArcade Stuff
-ClockConfig.ini
-ClockConfig2.ini
-ClockConfig.ini.sav
-credits.png
-JustJoined.png
-KeyConfig.ini
-KeyConfig.ini.sav
-go2.sh
-MyConfig.ini
-passwords.txt
-CurrentProfile.png
-credits.png
-webhook
-test.py
-receiver.pyenvwebhook.py
-CurrentProfile.png
-UserProfile.png
-FlightConfig.ini
-RefreshToken.sh
